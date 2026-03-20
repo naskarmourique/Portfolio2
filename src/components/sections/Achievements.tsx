@@ -2,11 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Shield, Users, Lightbulb, CheckCircle, Sparkles } from 'lucide-react';
 import { ACHIEVEMENTS, SOFT_SKILLS } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const CrownModel = () => {
+  return (
+    <group>
+      <mesh position={[0, -0.5, 0]}>
+        <cylinderGeometry args={[1, 1, 0.4, 32]} />
+        <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+      </mesh>
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <mesh key={i} position={[Math.cos(i * Math.PI / 3), 0.3, Math.sin(i * Math.PI / 3)]}>
+          <coneGeometry args={[0.2, 1, 32]} />
+          <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+        </mesh>
+      ))}
+      {/* Gem */}
+      <mesh position={[0, 0, 1]}>
+        <octahedronGeometry args={[0.2]} />
+        <meshStandardMaterial color="#8a0303" metalness={0.5} emissive="#8a0303" emissiveIntensity={2} />
+      </mesh>
+    </group>
+  );
+};
 
 const Achievements = () => {
   return (
     <section id="achievements" className="relative py-24 md:py-32 bg-muted/20 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <Section3DContainer cameraPos={[0, 0, 8]} className="w-full h-full">
+           <CrownModel />
+        </Section3DContainer>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -2,19 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap, BookOpen, Star, Sparkles, MapPin } from 'lucide-react';
 import { EDUCATION } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const DiplomaModel = () => {
+  return (
+    <group rotation={[Math.PI / 6, Math.PI / 4, 0]}>
+      {/* Diploma Cylinder */}
+      <mesh position={[0, 0, 0]}>
+        <cylinderGeometry args={[0.4, 0.4, 3, 32]} />
+        <meshStandardMaterial color="#F5E9C8" roughness={0.5} />
+      </mesh>
+      {/* Ribbon */}
+      <mesh position={[0, 0, 0]}>
+        <cylinderGeometry args={[0.42, 0.42, 0.4, 32]} />
+        <meshStandardMaterial color="#8a0303" metalness={0.5} />
+      </mesh>
+      {/* Wax Seal */}
+      <mesh position={[0.42, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <cylinderGeometry args={[0.2, 0.2, 0.1, 32]} />
+        <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+      </mesh>
+    </group>
+  );
+};
 
 const ScholarPath = () => {
   return (
     <section id="scholar" className="relative py-24 md:py-32 bg-background overflow-hidden">
-      {/* Background stars / sparkles */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-primary rounded-full animate-pulse" />
-        <div className="absolute top-1/4 left-1/2 w-1.5 h-1.5 bg-primary rounded-full animate-pulse delay-700" />
-        <div className="absolute top-2/3 left-2/3 w-1 h-1 bg-primary rounded-full animate-pulse delay-1000" />
-        <div className="absolute bottom-1/4 right-1/4 w-1.5 h-1.5 bg-primary rounded-full animate-pulse delay-1500" />
+        <Section3DContainer cameraPos={[0, 0, 8]} className="w-full h-full">
+           <DiplomaModel />
+        </Section3DContainer>
       </div>
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

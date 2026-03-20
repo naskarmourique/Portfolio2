@@ -12,12 +12,15 @@ const BattlefieldScene = () => {
   
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
+    const { x, y } = state.mouse;
+
     if (meshRef.current) {
-      meshRef.current.rotation.x = time * 0.2;
-      meshRef.current.rotation.y = time * 0.3;
+      meshRef.current.rotation.x = time * 0.2 + y * 0.2;
+      meshRef.current.rotation.y = time * 0.3 + x * 0.2;
     }
     if (swordRef.current) {
-      swordRef.current.rotation.y = Math.sin(time * 0.5) * 0.2;
+      swordRef.current.rotation.y = Math.sin(time * 0.5) * 0.2 + x * 0.5;
+      swordRef.current.rotation.x = y * 0.2;
       swordRef.current.position.y = Math.sin(time * 1) * 0.1;
     }
   });

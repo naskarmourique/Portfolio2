@@ -2,14 +2,39 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck, Swords } from 'lucide-react';
 import { OATH_CONTENT } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const ScrollModel = () => {
+  return (
+    <group>
+      <mesh position={[0, 0, 0]}>
+        <cylinderGeometry args={[1, 1, 3.5, 32]} />
+        <meshStandardMaterial color="#F5E9C8" roughness={0.3} metalness={0.1} />
+      </mesh>
+      <mesh position={[0, 1.75, 0]}>
+        <cylinderGeometry args={[1.1, 1.1, 0.4, 32]} />
+        <meshStandardMaterial color="#d4af37" metalness={0.9} roughness={0.1} />
+      </mesh>
+      <mesh position={[0, -1.75, 0]}>
+        <cylinderGeometry args={[1.1, 1.1, 0.4, 32]} />
+        <meshStandardMaterial color="#d4af37" metalness={0.9} roughness={0.1} />
+      </mesh>
+      {/* Wax Seal on 3D Scroll */}
+      <mesh position={[1, 0, 0]} rotation={[0, Math.PI / 2, 0]}>
+        <cylinderGeometry args={[0.3, 0.3, 0.1, 32]} />
+        <meshStandardMaterial color="#8a0303" roughness={0.5} />
+      </mesh>
+    </group>
+  );
+};
 
 const TheOath = () => {
   return (
     <section id="oath" className="relative py-24 md:py-32 overflow-hidden">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-        <div className="absolute top-1/2 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute top-1/2 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-20">
+        <Section3DContainer cameraPos={[0, 0, 8]} className="absolute top-0 right-0 w-full md:w-1/2 h-full">
+           <ScrollModel />
+        </Section3DContainer>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

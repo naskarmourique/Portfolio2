@@ -3,13 +3,44 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, Linkedin, Github, Globe, Send, Ghost, Shield, Layout } from 'lucide-react';
 import { CONTACT } from '@/constants/content';
 import { Button } from '@/components/ui/button';
+import Section3DContainer from '../common/Section3DContainer';
+
+const RavenModel = () => {
+  return (
+    <group>
+      {/* Abstract Raven/Bird shape */}
+      <mesh position={[0, 0, 0]} rotation={[Math.PI / 4, 0, 0]}>
+        <coneGeometry args={[0.5, 2, 4]} />
+        <meshStandardMaterial color="#1a1a1a" metalness={0.9} roughness={0.1} />
+      </mesh>
+      <mesh position={[0.5, 0.5, 0]} rotation={[0, 0, Math.PI / 4]}>
+        <boxGeometry args={[1.5, 0.2, 0.5]} />
+        <meshStandardMaterial color="#1a1a1a" />
+      </mesh>
+      <mesh position={[-0.5, 0.5, 0]} rotation={[0, 0, -Math.PI / 4]}>
+        <boxGeometry args={[1.5, 0.2, 0.5]} />
+        <meshStandardMaterial color="#1a1a1a" />
+      </mesh>
+      {/* Glowing Eyes */}
+      <mesh position={[0.15, 0.8, 0.2]}>
+        <sphereGeometry args={[0.05]} />
+        <meshStandardMaterial color="#8a0303" emissive="#8a0303" emissiveIntensity={5} />
+      </mesh>
+      <mesh position={[-0.15, 0.8, 0.2]}>
+        <sphereGeometry args={[0.05]} />
+        <meshStandardMaterial color="#8a0303" emissive="#8a0303" emissiveIntensity={5} />
+      </mesh>
+    </group>
+  );
+};
 
 const TheRaven = () => {
   return (
     <section id="raven" className="relative py-24 md:py-32 bg-background overflow-hidden">
-      {/* Background Dark Tower Atmosphere */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-[radial-gradient(circle_at_center,rgba(138,3,3,0.3)_0%,transparent_70%)] rounded-full blur-[150px]" />
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <Section3DContainer cameraPos={[0, 0, 5]} className="w-full h-full">
+           <RavenModel />
+        </Section3DContainer>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

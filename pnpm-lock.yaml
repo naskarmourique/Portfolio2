@@ -143,6 +143,9 @@ importers:
       framer-motion:
         specifier: ^12.38.0
         version: 12.38.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      framer-motion-3d:
+        specifier: ^12.4.13
+        version: 12.4.13(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2447,6 +2450,15 @@ packages:
   fraction.js@5.3.4:
     resolution: {integrity: sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==}
 
+  framer-motion-3d@12.4.13:
+    resolution: {integrity: sha512-QE5JTZHE+bguGNLsnu3raLJP5QR8PVKiB0GXXWLg1paxa0GF8QDJx2G13J8TevAzZ+8HI7O5ishk1VnDd2jzTQ==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
+    peerDependencies:
+      '@react-three/fiber': 8.2.2
+      react: '>=18.0'
+      react-dom: '>=18.0'
+      three: '>=0.133'
+
   framer-motion@12.38.0:
     resolution: {integrity: sha512-rFYkY/pigbcswl1XQSb7q424kSTQ8q6eAC+YUsSKooHQYuLdzdHjrt6uxUC+PRAO++q5IS7+TamgIw1AphxR+g==}
     peerDependencies:
@@ -3321,6 +3333,9 @@ packages:
     peerDependencies:
       '@types/react': '>=18'
       react: '>=18'
+
+  react-merge-refs@2.1.1:
+    resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
 
   react-reconciler@0.27.0:
     resolution: {integrity: sha512-HmMDKciQjYmBRGuuhIaKA1ba/7a+UsM5FzOZsMO2JYHt9Jh8reCb7j1eDC95NOyUlKM9KRyvdx0flBuDvYSBoA==}
@@ -6190,6 +6205,17 @@ snapshots:
 
   fraction.js@5.3.4: {}
 
+  framer-motion-3d@12.4.13(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0):
+    dependencies:
+      '@react-three/fiber': 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
+      framer-motion: 12.38.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      react-merge-refs: 2.1.1
+      three: 0.180.0
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+
   framer-motion@12.38.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       motion-dom: 12.38.0
@@ -7319,6 +7345,8 @@ snapshots:
       vfile: 6.0.3
     transitivePeerDependencies:
       - supports-color
+
+  react-merge-refs@2.1.1: {}
 
   react-reconciler@0.27.0(react@18.3.1):
     dependencies:

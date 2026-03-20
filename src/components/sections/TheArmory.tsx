@@ -2,6 +2,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Swords, Scroll, Tablet, Shield, Map as MapIcon } from 'lucide-react';
 import { SKILLS } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const ShieldModel = () => {
+  return (
+    <group rotation={[0, -Math.PI / 4, 0]}>
+      {/* Shield Base */}
+      <mesh position={[0, 0, 0]} scale={[2, 2.5, 0.2]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#4a4a4a" metalness={0.8} roughness={0.2} />
+      </mesh>
+      {/* Shield Rim */}
+      <mesh position={[0, 0, 0.1]} scale={[2.1, 2.6, 0.1]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+      </mesh>
+      {/* Shield Cross Decoration */}
+      <mesh position={[0, 0, 0.15]} scale={[0.3, 1.8, 0.05]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#8a0303" metalness={0.5} />
+      </mesh>
+      <mesh position={[0, 0, 0.15]} scale={[1.4, 0.3, 0.05]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#8a0303" metalness={0.5} />
+      </mesh>
+    </group>
+  );
+};
 
 const TheArmory = () => {
   const getIcon = (type: string) => {
@@ -16,8 +43,14 @@ const TheArmory = () => {
   };
 
   return (
-    <section id="armory" className="relative py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="armory" className="relative py-24 md:py-32 bg-background overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <Section3DContainer cameraPos={[5, 0, 10]} className="w-full h-full">
+           <ShieldModel />
+        </Section3DContainer>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

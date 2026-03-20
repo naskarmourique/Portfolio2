@@ -2,11 +2,40 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Scroll, Award, ShieldCheck, Star, Bookmark } from 'lucide-react';
 import { CERTIFICATIONS } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const BookModel = () => {
+  return (
+    <group rotation={[0, -Math.PI / 6, 0]}>
+      {/* Book Cover */}
+      <mesh position={[0, 0, 0]} scale={[2, 3, 0.4]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#2a0a0a" roughness={0.8} />
+      </mesh>
+      {/* Book Pages */}
+      <mesh position={[0.1, 0, 0]} scale={[1.8, 2.8, 0.35]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#F5E9C8" />
+      </mesh>
+      {/* Spine Decoration */}
+      <mesh position={[-1, 0, 0]} scale={[0.1, 3.1, 0.5]}>
+        <boxGeometry />
+        <meshStandardMaterial color="#d4af37" metalness={1} />
+      </mesh>
+    </group>
+  );
+};
 
 const ScrollsOfHonor = () => {
   return (
     <section id="scrolls" className="relative py-24 md:py-32 bg-muted/20 overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <Section3DContainer cameraPos={[0, 0, 10]} className="w-full h-full">
+           <BookModel />
+        </Section3DContainer>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

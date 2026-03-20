@@ -3,11 +3,33 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github, Code, Layout, Globe, Star } from 'lucide-react';
 import { PROJECTS } from '@/constants/content';
 import { Button } from '@/components/ui/button';
+import Section3DContainer from '../common/Section3DContainer';
+
+const ArtifactModel = () => {
+  return (
+    <group>
+      <mesh position={[0, 0, 0]}>
+        <icosahedronGeometry args={[1, 0]} />
+        <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} wireframe />
+      </mesh>
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color="#8a0303" metalness={0.5} opacity={0.5} transparent />
+      </mesh>
+    </group>
+  );
+};
 
 const GreatWorks = () => {
   return (
-    <section id="projects" className="relative py-24 md:py-32 bg-background">
-      <div className="container mx-auto px-4">
+    <section id="projects" className="relative py-24 md:py-32 bg-background overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none opacity-10">
+        <Section3DContainer cameraPos={[0, 0, 5]} className="w-full h-full">
+           <ArtifactModel />
+        </Section3DContainer>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

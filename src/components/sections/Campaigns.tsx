@@ -2,13 +2,34 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Calendar, Briefcase, GraduationCap, ArrowRight } from 'lucide-react';
 import { CAMPAIGNS } from '@/constants/content';
+import Section3DContainer from '../common/Section3DContainer';
+
+const MapMarkerModel = () => {
+  return (
+    <group>
+      <mesh position={[0, -1, 0]}>
+        <cylinderGeometry args={[2, 2, 0.2, 32]} />
+        <meshStandardMaterial color="#2a0a0a" metalness={0.5} roughness={0.8} />
+      </mesh>
+      <mesh position={[0, 0, 0]}>
+        <coneGeometry args={[0.5, 2, 32]} />
+        <meshStandardMaterial color="#8a0303" metalness={0.8} />
+      </mesh>
+      <mesh position={[0, 1.2, 0]}>
+        <sphereGeometry args={[0.6]} />
+        <meshStandardMaterial color="#d4af37" metalness={0.9} />
+      </mesh>
+    </group>
+  );
+};
 
 const Campaigns = () => {
   return (
     <section id="campaigns" className="relative py-24 md:py-32 overflow-hidden bg-muted/20">
-      {/* Background Decorative Map - Abstracted */}
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none opacity-5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] bg-[url('https://www.transparenttextures.com/patterns/old-map.png')] bg-repeat" />
+      <div className="absolute inset-0 pointer-events-none opacity-20">
+        <Section3DContainer cameraPos={[0, 0, 10]} className="w-full h-full">
+           <MapMarkerModel />
+        </Section3DContainer>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

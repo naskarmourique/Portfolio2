@@ -1,8 +1,9 @@
 import React, { useRef, Suspense, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, Stars, Sparkles, Float, MeshDistortMaterial, PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera, Sparkles, Float } from '@react-three/drei';
 import * as THREE from 'three';
+import { useInView } from 'react-intersection-observer';
 import { HERO_CONTENT } from '@/constants/content';
 import { Button } from '@/components/ui/button';
 
@@ -12,77 +13,68 @@ const BattlefieldScene = () => {
   
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const { x, y } = state.mouse;
 
     if (meshRef.current) {
-      meshRef.current.rotation.x = time * 0.2 + y * 0.2;
-      meshRef.current.rotation.y = time * 0.3 + x * 0.2;
+      meshRef.current.rotation.x = time * 0.1;
+      meshRef.current.rotation.y = time * 0.15;
     }
     if (swordRef.current) {
-      swordRef.current.rotation.y = Math.sin(time * 0.5) * 0.2 + x * 0.5;
-      swordRef.current.rotation.x = y * 0.2;
-      swordRef.current.position.y = Math.sin(time * 1) * 0.1;
+      swordRef.current.rotation.y = time * 0.3;
+      swordRef.current.position.y = Math.sin(time * 0.5) * 0.15;
     }
   });
 
   return (
     <>
       <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={2} color="#d4af37" />
-      <pointLight position={[-10, -10, -10]} intensity={1} color="#8a0303" />
-      <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-      <Sparkles count={200} scale={20} size={2} speed={0.5} color="#ff4500" />
+      <pointLight position={[5, 5, 5]} intensity={1.5} color="#d4af37" />
+      <Sparkles count={100} scale={10} size={1} speed={0.3} color="#ff4500" />
       
-      {/* Central Floating Symbol - A Shield/Sword representation */}
-      <Float speed={2} rotationIntensity={1} floatIntensity={2}>
+      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
         <group ref={swordRef}>
           {/* Blade */}
           <mesh position={[0, 0, 0]}>
-            <boxGeometry args={[0.2, 3, 0.05]} />
-            <meshStandardMaterial color="#4a4a4a" metalness={0.9} roughness={0.1} />
+            <boxGeometry args={[0.15, 2.5, 0.04]} />
+            <meshStandardMaterial color="#3a3a3a" metalness={1} roughness={0.1} />
           </mesh>
           {/* Crossguard */}
-          <mesh position={[0, -1.2, 0]}>
-            <boxGeometry args={[1, 0.2, 0.2]} />
+          <mesh position={[0, -0.9, 0]}>
+            <boxGeometry args={[0.8, 0.15, 0.15]} />
             <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
           </mesh>
           {/* Hilt */}
-          <mesh position={[0, -1.6, 0]}>
-            <cylinderGeometry args={[0.1, 0.1, 0.8]} />
+          <mesh position={[0, -1.2, 0]}>
+            <cylinderGeometry args={[0.08, 0.08, 0.6]} />
             <meshStandardMaterial color="#2a0a0a" metalness={0.5} roughness={0.8} />
           </mesh>
           {/* Pommel */}
-          <mesh position={[0, -2, 0]}>
-            <sphereGeometry args={[0.15]} />
+          <mesh position={[0, -1.5, 0]}>
+            <sphereGeometry args={[0.12]} />
             <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
           </mesh>
         </group>
       </Float>
 
-      {/* Abstract Mystical Elements */}
-      <mesh ref={meshRef} position={[5, 2, -5]}>
-        <torusKnotGeometry args={[1, 0.3, 128, 32]} />
-        <MeshDistortMaterial color="#8a0303" speed={2} distort={0.4} />
-      </mesh>
-      
-      <mesh position={[-5, -2, -8]} rotation={[0, 0, Math.PI / 4]}>
-        <octahedronGeometry args={[2]} />
-        <meshStandardMaterial color="#1a1a1a" wireframe />
+      {/* Abstract Mystical Elements - Simplified */}
+      <mesh ref={meshRef} position={[4, 2, -3]}>
+        <torusKnotGeometry args={[0.8, 0.2, 64, 16]} />
+        <meshStandardMaterial color="#8a0303" wireframe />
       </mesh>
     </>
   );
 };
 
 const Hero = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const { ref: inViewRef, inView } = useInView({ threshold: 0.1 });
   const { scrollYProgress } = useScroll({
-    target: containerRef,
+    target: containerRef as React.RefObject<HTMLElement>,
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.9]);
 
   const [titleIndex, setTitleIndex] = useState(0);
 
@@ -94,16 +86,25 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section ref={(el) => {
+      containerRef.current = el as HTMLDivElement;
+      inViewRef(el);
+    }} className="relative h-screen w-full flex items-center justify-center overflow-hidden">
       {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <Canvas shadows gl={{ antialias: true }} dpr={[1, 2]}>
-          <PerspectiveCamera makeDefault position={[0, 0, 10]} fov={50} />
-          <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
-            <BattlefieldScene />
-            <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-          </Suspense>
-        </Canvas>
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        {inView && (
+          <Canvas 
+            shadows={false} 
+            dpr={[1, 1.2]} 
+            gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} 
+            style={{ pointerEvents: 'none' }}
+          >
+            <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
+            <Suspense fallback={<div className="absolute inset-0 bg-background" />}>
+              <BattlefieldScene />
+            </Suspense>
+          </Canvas>
+        )}
       </div>
 
       {/* Content */}

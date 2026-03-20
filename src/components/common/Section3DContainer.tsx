@@ -40,13 +40,20 @@ const Section3DContainer: React.FC<Section3DContainerProps> = ({
         <Canvas 
           shadows={false} 
           dpr={[1, 1.2]} 
-          gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} 
+          gl={{ 
+            antialias: false, 
+            alpha: true, 
+            powerPreference: "high-performance",
+            stencil: false,
+            depth: true 
+          }} 
           style={{ pointerEvents: 'none' }}
           frameloop="always"
         >
-          <PerspectiveCamera makeDefault position={cameraPos} fov={50} />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[5, 5, 5]} intensity={1} color="#d4af37" />
+          <PerspectiveCamera makeDefault position={cameraPos} fov={40} />
+          <ambientLight intensity={0.4} />
+          <pointLight position={[10, 10, 10]} intensity={1.5} color="#d4af37" />
+          <pointLight position={[-10, -5, 5]} intensity={0.5} color="#8a0303" />
           
           <Suspense fallback={null}>
             <InteractiveGroup>

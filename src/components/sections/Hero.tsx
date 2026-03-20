@@ -20,46 +20,81 @@ const BattlefieldScene = () => {
     }
     if (swordRef.current) {
       swordRef.current.rotation.y = time * 0.3;
-      swordRef.current.position.y = Math.sin(time * 0.5) * 0.15;
+      swordRef.current.position.y = Math.sin(time * 0.5) * 0.2;
     }
   });
 
   return (
     <>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[5, 5, 5]} intensity={1.5} color="#d4af37" />
-      <Sparkles count={100} scale={10} size={1} speed={0.3} color="#ff4500" />
+      <ambientLight intensity={0.4} />
+      <pointLight position={[10, 10, 10]} intensity={2.5} color="#d4af37" />
+      <pointLight position={[-10, -5, 5]} intensity={1} color="#8a0303" />
+      <Sparkles count={150} scale={20} size={1.5} speed={0.4} color="#ffaa00" opacity={0.6} />
       
-      <Float speed={2} rotationIntensity={0.5} floatIntensity={1}>
-        <group ref={swordRef}>
-          {/* Blade */}
+      {/* Cinematic Ground Grid */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>
+        <planeGeometry args={[100, 100]} />
+        <meshStandardMaterial color="#050505" metalness={0.8} roughness={0.2} transparent opacity={0.4} />
+      </mesh>
+      <gridHelper args={[100, 50, "#1a1a1a", "#0a0a0a"]} position={[0, -3.9, 0]} />
+
+      <Float speed={1.5} rotationIntensity={0.5} floatIntensity={1.5}>
+        <group ref={swordRef} scale={1.2}>
+          {/* Blade with reflection */}
           <mesh position={[0, 0, 0]}>
-            <boxGeometry args={[0.15, 2.5, 0.04]} />
-            <meshStandardMaterial color="#3a3a3a" metalness={1} roughness={0.1} />
+            <boxGeometry args={[0.18, 2.8, 0.04]} />
+            <meshStandardMaterial 
+              color="#666666" 
+              metalness={1} 
+              roughness={0.15} 
+              emissive="#222222"
+              emissiveIntensity={0.5}
+            />
           </mesh>
-          {/* Crossguard */}
-          <mesh position={[0, -0.9, 0]}>
-            <boxGeometry args={[0.8, 0.15, 0.15]} />
-            <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+          {/* Ornate Crossguard */}
+          <mesh position={[0, -1, 0]}>
+            <boxGeometry args={[1, 0.18, 0.18]} />
+            <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.05} />
           </mesh>
-          {/* Hilt */}
-          <mesh position={[0, -1.2, 0]}>
-            <cylinderGeometry args={[0.08, 0.08, 0.6]} />
-            <meshStandardMaterial color="#2a0a0a" metalness={0.5} roughness={0.8} />
+          {/* Leather Hilt */}
+          <mesh position={[0, -1.4, 0]}>
+            <cylinderGeometry args={[0.08, 0.1, 0.8, 16]} />
+            <meshStandardMaterial color="#2a0a0a" metalness={0.3} roughness={0.9} />
           </mesh>
-          {/* Pommel */}
-          <mesh position={[0, -1.5, 0]}>
-            <sphereGeometry args={[0.12]} />
-            <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.1} />
+          {/* Golden Pommel */}
+          <mesh position={[0, -1.8, 0]}>
+            <octahedronGeometry args={[0.15]} />
+            <meshStandardMaterial color="#d4af37" metalness={1} roughness={0.05} />
           </mesh>
         </group>
       </Float>
 
-      {/* Abstract Mystical Elements - Simplified */}
-      <mesh ref={meshRef} position={[4, 2, -3]}>
-        <torusKnotGeometry args={[0.8, 0.2, 64, 16]} />
-        <meshStandardMaterial color="#8a0303" wireframe />
+      {/* Spatially distant mystical elements */}
+      <mesh ref={meshRef} position={[8, 3, -10]}>
+        <torusKnotGeometry args={[1.5, 0.4, 128, 32]} />
+        <meshStandardMaterial 
+          color="#8a0303" 
+          metalness={0.8} 
+          roughness={0.2} 
+          wireframe
+          opacity={0.3}
+          transparent
+        />
       </mesh>
+      
+      {/* Floating debris for depth */}
+      <group>
+        {Array.from({ length: 20 }).map((_, i) => (
+          <mesh 
+            key={i} 
+            position={[Math.sin(i) * 15, Math.cos(i) * 10, -Math.random() * 20]}
+            rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}
+          >
+            <boxGeometry args={[0.1, 0.1, 0.1]} />
+            <meshStandardMaterial color="#1a1a1a" metalness={0.5} />
+          </mesh>
+        ))}
+      </group>
     </>
   );
 };

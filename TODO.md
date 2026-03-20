@@ -5,10 +5,10 @@
   - [x] Update `index.css` with theme colors and fonts
   - [x] Update `tailwind.config.js` with fonts and custom theme
   - [x] Install necessary packages (`framer-motion`, `three`, `@react-three/fiber`, `@react-three/drei`)
-- [ ] Enhance 3D immersion across all sections
-  - [ ] Implement a persistent 3D background or per-section interactive 3D elements
-  - [ ] Add 3D scroll-linked animations to all main sections
-  - [ ] Refactor components to include 3D Canvas elements
+- [x] Enhance 3D immersion across all sections
+  - [x] Implement a persistent 3D background or per-section interactive 3D elements
+  - [x] Add 3D scroll-linked animations to all main sections
+  - [x] Refactor components to include 3D Canvas elements
 - [x] Create Core Components & Layout
   - [x] Implement `CustomCursor` component
   - [x] Implement `ScrollProgress` component

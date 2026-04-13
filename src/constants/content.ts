@@ -73,7 +73,7 @@ export const PROJECTS = [
     description: "Secure platform: teacher login, grade management, performance statistics. Deployed live with real-time database queries.",
     tech: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "HTML", "CSS"],
     link: "https://student-performance-tracker-s6wf.onrender.com",
-    github: "https://github.com/mourique-naskar",
+    github: "https://github.com/naskarmourique",
     image: "/projects/student_perf.png"
   },
   {
@@ -81,7 +81,7 @@ export const PROJECTS = [
     type: "ML + Analytics",
     description: "Cleaned and aggregated traffic data; forecasted congestion using ML models. Flask analytics dashboard with interactive charts and heatmaps.",
     tech: ["Flask", "Pandas", "NumPy", "Scikit-learn", "SciPy", "Matplotlib", "Seaborn"],
-    github: "https://github.com/mourique-naskar",
+    github: "https://github.com/naskarmourique",
     image: "/projects/traffic_analyzer.png"
   },
   {
@@ -105,7 +105,7 @@ export const PROJECTS = [
     type: "Full-stack Web App",
     description: "Donor registration, blood inventory control, emergency request approvals for hospitals.",
     tech: ["HTML5", "CSS", "PHP", "MySQL", "Bootstrap", "XAMPP"],
-    github: "https://github.com/mourique-naskar",
+    github: "https://github.com/naskarmourique",
     image: "/projects/bloodconnect.png"
   },
   {
@@ -113,7 +113,7 @@ export const PROJECTS = [
     type: "Data Analysis",
     description: "Expense tracking with structured JSON storage and interactive visual analysis.",
     tech: ["Python", "Pandas", "Matplotlib", "Ipywidgets", "JSON"],
-    github: "https://github.com/mourique-naskar",
+    github: "https://github.com/naskarmourique",
     image: "/projects/expense_tracker.png"
   },
 ];
@@ -192,8 +192,8 @@ export const SOFT_SKILLS = [
 export const CONTACT = {
   phone: "8100264250",
   email: "naskarmourique@gmail.com",
-  linkedin: "https://linkedin.com/in/mourique-naskar",
-  github: "https://github.com/mourique-naskar",
+  linkedin: "https://linkedin.com/in/mourique-naskar-b8141a2bb",
+  github: "https://github.com/naskarmourique",
   portfolio: "https://mourique.netlify.app",
   cta: "Send the Raven — Let us forge something legendary together.",
 };

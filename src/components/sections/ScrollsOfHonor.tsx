@@ -53,17 +53,20 @@ const ScrollsOfHonor = () => {
           <div className="h-1 w-24 bg-primary mx-auto mt-6" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {CERTIFICATIONS.map((cert, idx) => (
             <motion.div
-              key={cert.id}
+              key={cert.id || cert.title}
               initial={{ opacity: 0, y: 50, rotate: idx % 2 === 0 ? -2 : 2 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.15 }}
-              className="relative group cursor-pointer h-[400px] flex items-center justify-center perspective-1000"
+              className="relative group cursor-pointer h-auto min-h-[450px] flex items-center justify-center perspective-1000"
             >
-              <div className="scroll-unfurl w-full h-full p-8 flex flex-col items-center justify-center text-center shadow-2xl relative transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-4">
+              <div 
+                className="scroll-unfurl w-full h-full p-8 flex flex-col items-center justify-center text-center shadow-2xl relative transition-transform duration-500 group-hover:scale-105 group-hover:-translate-y-4"
+                onClick={() => cert.link && window.open(cert.link, '_blank')}
+              >
                 {/* Scroll handle effects */}
                 <div className="absolute top-0 left-0 right-0 h-4 bg-background/10 rounded-t-full border-b border-background/20" />
                 <div className="absolute bottom-0 left-0 right-0 h-4 bg-background/10 rounded-b-full border-t border-background/20" />
@@ -76,16 +79,29 @@ const ScrollsOfHonor = () => {
                   {cert.issuer}
                 </h3>
                 
-                <p className="font-serif italic text-background/80 text-sm leading-relaxed mb-6 flex-1 px-4">
+                <p className="font-serif italic text-background/80 text-sm leading-relaxed mb-4 px-4">
                   "{cert.title}"
                 </p>
 
-                <div className="space-y-2 border-t border-background/20 pt-4 w-full">
+                {cert.description && (
+                  <p className="font-sans text-[10px] uppercase tracking-tighter text-background/60 mb-6 px-4 line-clamp-3">
+                    {cert.description}
+                  </p>
+                )}
+
+                <div className="space-y-2 border-t border-background/20 pt-4 w-full mt-auto">
                   <span className="font-cinzel text-[10px] tracking-widest uppercase text-background/60 block">{cert.date}</span>
                   <div className="font-sans text-[10px] tracking-widest uppercase text-background/40 font-bold overflow-hidden text-ellipsis whitespace-nowrap px-4">
-                    ID: {cert.id}
+                    {cert.id.startsWith('Grade') ? cert.id : `ID: ${cert.id}`}
                   </div>
                 </div>
+
+                {/* Verification Link Hint */}
+                {cert.link && (
+                  <div className="absolute top-4 right-4 text-background/30 group-hover:text-accent transition-colors">
+                    <Star className="w-4 h-4 fill-current" />
+                  </div>
+                )}
 
                 {/* Wax Seal Decoration */}
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-12 h-12 bg-accent rounded-full border-2 border-accent/50 flex items-center justify-center shadow-lg group-hover:rotate-12 transition-transform">

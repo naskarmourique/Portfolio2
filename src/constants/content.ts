@@ -73,46 +73,66 @@ export const PROJECTS = [
     description: "Secure platform: teacher login, grade management, performance statistics. Deployed live with real-time database queries.",
     tech: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "HTML", "CSS"],
     link: "https://student-performance-tracker-s6wf.onrender.com",
+    github: "https://github.com/mourique-naskar",
   },
   {
     title: "Smart Traffic Analyzer & Predictor",
     type: "ML + Analytics",
     description: "Cleaned and aggregated traffic data; forecasted congestion using ML models. Flask analytics dashboard with interactive charts and heatmaps.",
     tech: ["Flask", "Pandas", "NumPy", "Scikit-learn", "SciPy", "Matplotlib", "Seaborn"],
+    github: "https://github.com/mourique-naskar",
+  },
+  {
+    title: "PayGuard AI - Credit Card Fraud Analysis",
+    type: "Deep Learning + Fintech",
+    description: "Intelligent fraud detection platform using Autoencoder Neural Networks to identify transaction anomalies in real-time. Features a dynamic dashboard for predictive analytics and high-volume monitoring.",
+    tech: ["Python", "FastAPI", "PyTorch", "React", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/naskarmourique/PayGuard-AI",
+  },
+  {
+    title: "SnapAttend - AI Biometric Attendance",
+    type: "AI + Computer Vision",
+    description: "High-precision biometric ecosystem leveraging FaceNet512 and RetinaFace for automated attendance tracking. Includes a secure RBAC dashboard with live analytics and automated reporting.",
+    tech: ["Python", "OpenCV", "React", "Tailwind CSS", "Framer Motion", "JWT"],
+    github: "https://github.com/naskarmourique/SnapAttend",
   },
   {
     title: "BloodConnect — Blood Bank Management",
     type: "Full-stack Web App",
     description: "Donor registration, blood inventory control, emergency request approvals for hospitals.",
     tech: ["HTML5", "CSS", "PHP", "MySQL", "Bootstrap", "XAMPP"],
+    github: "https://github.com/mourique-naskar",
   },
   {
     title: "Personal Expense Tracker",
     type: "Data Analysis",
     description: "Expense tracking with structured JSON storage and interactive visual analysis.",
     tech: ["Python", "Pandas", "Matplotlib", "Ipywidgets", "JSON"],
-  },
-  {
-    title: "Interactive 3D Portfolio Website",
-    type: "Frontend Development",
-    description: "High-performance responsive portfolio with custom 3D animations.",
-    tech: ["HTML", "CSS", "JavaScript", "Spline 3D"],
-    link: "https://mourique.netlify.app",
+    github: "https://github.com/mourique-naskar",
   },
 ];
 
 export const CERTIFICATIONS = [
   {
+    title: "G++ Smart AI & ML (1-Year Program)",
+    issuer: "RGET Kudghat",
+    date: "Mar 2025 – Mar 2026",
+    id: "Grade: 80",
+    description: "Focus: ML and DL, CV and Transfer Learning, Neural Networks, Cloud ML Deployment, and Large Data Management",
+  },
+  {
     title: "Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate",
     issuer: "Oracle",
     date: "Sep 2025",
     id: "102637996OCI25AICFA",
+    link: "https://catalog-education.oracle.com/ords/certview/sharebadge?id=8DF962911F5A9D6BFF8336603A2AC609AFB32B50B53A3F1FB6A9D96B425DDA3D",
   },
   {
     title: "Postman API Fundamentals Student Expert Certification",
     issuer: "LetsUpgrade",
     date: "Sep 2025",
     id: "LUEPAFSMAR12584",
+    link: "https://verify.letsupgrade.in/certificate/LUEPAFSMAR12584",
   },
   {
     title: "MongoDB Bootcamp",
@@ -160,7 +180,7 @@ export const ACHIEVEMENTS = [
 export const SOFT_SKILLS = [
   "Team Leadership", "Cross-functional Collaboration", "Technical Communication", 
   "Problem Solving", "Analytical Thinking", "Attention to Detail", 
-  "Adaptability", "Project Ownership", "Continuous Learning"
+  "Adaptability", "Project Ownership", "Continuous Learning", "Time Management"
 ];
 
 export const CONTACT = {

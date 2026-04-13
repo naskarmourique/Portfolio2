@@ -1,95 +1,77 @@
-# Welcome to Your Miaoda Project
-Miaoda Application Link URL
-    URL:https://medo.dev/projects/app-aeasr1i8b281
+# 📜 The Chronicle | Mourique Naskar's Portfolio
 
-# Welcome to Your Miaoda Project
+A high-performance, visually immersive digital chronicle forged with **React**, **Three.js**, and **Framer Motion**. This portfolio follows a medieval "Warrior-Scholar" theme, blending ancient aesthetics with modern full-stack engineering.
 
-## Project Info
+![Version](https://img.shields.io/badge/version-0.0.1-gold)
+![Tech](https://img.shields.io/badge/Tech-React%20%7C%20Three.js%20%7C%20Tailwind-blue)
+![Theme](https://img.shields.io/badge/Theme-Medieval%20Chronicle-crimson)
 
-## Project Directory
+---
 
-```
-├── README.md # Documentation
-├── components.json # Component library configuration
-├── index.html # Entry file
-├── package.json # Package management
-├── postcss.config.js # PostCSS configuration
-├── public # Static resources directory
-│   ├── favicon.png # Icon
-│   └── images # Image resources
-├── src # Source code directory
-│   ├── App.tsx # Entry file
-│   ├── components # Components directory
-│   ├── context # Context directory
-│   ├── db # Database configuration directory
-│   ├── hooks # Common hooks directory
-│   ├── index.css # Global styles
-│   ├── layout # Layout directory
-│   ├── lib # Utility library directory
-│   ├── main.tsx # Entry file
-│   ├── routes.tsx # Routing configuration
-│   ├── pages # Pages directory
-│   ├── services # Database interaction directory
-│   ├── types # Type definitions directory
-├── tsconfig.app.json # TypeScript frontend configuration file
-├── tsconfig.json # TypeScript configuration file
-├── tsconfig.node.json # TypeScript Node.js configuration file
-└── vite.config.ts # Vite configuration file
-```
+## ⚔️ The Great Works (Featured Projects)
 
-## Tech Stack
+### 💳 PayGuard AI - Credit Card Fraud Analysis
+**Deep Learning + Fintech**  
+An intelligent fraud detection platform using Autoencoder Neural Networks to identify transaction anomalies in real-time. Features a dynamic dashboard for predictive analytics and high-volume monitoring.
+- **Stack:** Python (FastAPI), PyTorch, React, TypeScript, Tailwind CSS.
+- [Explore the Codebase](https://github.com/naskarmourique/PayGuard-AI)
 
-Vite, TypeScript, React, Supabase
+### 📸 SnapAttend - AI Biometric Attendance
+**Computer Vision + AI**  
+High-precision biometric ecosystem leveraging FaceNet512 and RetinaFace for automated attendance tracking. Includes a secure RBAC dashboard with live analytics and automated reporting.
+- **Stack:** Python (OpenCV), React, Tailwind CSS, Framer Motion, JWT.
+- [Explore the Codebase](https://github.com/naskarmourique/SnapAttend)
 
-## Development Guidelines
+---
 
-### How to edit code locally?
+## 🏺 Artifacts & Features
 
-You can choose [VSCode](https://code.visualstudio.com/Download) or any IDE you prefer. The only requirement is to have Node.js and npm installed.
+- **🛡️ The Armory:** A dynamic, horizontally scrolling display of technical weaponry (Python, ML, Full-Stack tools).
+- **📜 Scrolls of Honor:** A 5-column grid showcasing verified certifications (Oracle, Postman, G++ AI/ML) with direct verification links.
+- **🗡️ Sword Cursor:** A custom-engineered interactive cursor that transforms into a glowing blade on desktop.
+- **🕯️ Preloader:** A thematic medieval entry experience ensuring all assets are ready for battle.
+- **🌌 3D Environments:** Section-specific 3D background models (Shields, Crowns, Ravens) that interact with scroll and mouse movement.
 
-### Environment Requirements
+---
 
-```
-# Node.js ≥ 20
-# npm ≥ 10
-Example:
-# node -v   # v20.18.3
-# npm -v    # 10.8.2
-```
+## 🛠️ Technical Forge (Tech Stack)
 
-### Installing Node.js on Windows
+- **Frontend:** React 18, TypeScript, Vite
+- **Styling:** Tailwind CSS (Custom Medieval Palette)
+- **Animations:** Framer Motion, Lucide React
+- **3D Engine:** Three.js, @react-three/fiber, @react-three/drei
+- **Performance:** React Intersection Observer (Lazy-loading 3D canvases)
 
-```
-# Step 1: Visit the Node.js official website: https://nodejs.org/, click download. The website will automatically suggest a suitable version (32-bit or 64-bit) for your system.
-# Step 2: Run the installer: Double-click the downloaded installer to run it.
-# Step 3: Complete the installation: Follow the installation wizard to complete the process.
-# Step 4: Verify installation: Open Command Prompt (cmd) or your IDE terminal, and type `node -v` and `npm -v` to check if Node.js and npm are installed correctly.
-```
+---
 
-### Installing Node.js on macOS
+## 🚀 Quick Start
 
-```
-# Step 1: Using Homebrew (Recommended method): Open Terminal. Type the command `brew install node` and press Enter. If Homebrew is not installed, you need to install it first by running the following command in Terminal:
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-Alternatively, use the official installer: Visit the Node.js official website. Download the macOS .pkg installer. Open the downloaded .pkg file and follow the prompts to complete the installation.
-# Step 2: Verify installation: Open Command Prompt (cmd) or your IDE terminal, and type `node -v` and `npm -v` to check if Node.js and npm are installed correctly.
-```
+### Prerequisites
+- Node.js ≥ 20
+- npm ≥ 10
 
-### After installation, follow these steps:
+### Installation
+1. **Clone the realm:**
+   ```bash
+   git clone https://github.com/naskarmourique/Portfolio2.git
+   ```
+2. **Gather dependencies:**
+   ```bash
+   npm i
+   ```
+3. **Ignite the server:**
+   ```bash
+   npm run dev
+   ```
 
-```
-# Step 1: Download the code package
-# Step 2: Extract the code package
-# Step 3: Open the code package with your IDE and navigate into the code directory
-# Step 4: In the IDE terminal, run the command to install dependencies: npm i
-# Step 5: In the IDE terminal, run the command to start the development server: npm run dev -- --host 127.0.0.1
-# Step 6: if step 5 failed, try this command to start the development server: npx vite --host 127.0.0.1
-```
+---
 
-### How to develop backend services?
+## 🕊️ Send the Raven
+*In the grand tapestry of the digital age, every connection is a thread of fate. Let us weave something legendary.*
 
-Configure environment variables and install relevant dependencies.If you need to use a database, please use the official version of Supabase.
+- **LinkedIn:** [M. Naskar](https://linkedin.com/in/mourique-naskar)
+- **GitHub:** [@mourique-naskar](https://github.com/mourique-naskar)
+- **Email:** naskarmourique@gmail.com
 
-## Learn More
-
-You can also check the help documentation: Download and Building the app（ [https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en](https://intl.cloud.baidu.com/en/doc/MIAODA/s/download-and-building-the-app-en)）to learn more detailed content.
+---
+© 2026 Mourique Naskar — Forged with code and iron.

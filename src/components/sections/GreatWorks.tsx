@@ -25,7 +25,7 @@ const GreatWorks = () => {
     <section id="projects" className="relative py-24 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-10">
         <Section3DContainer cameraPos={[0, 0, 5]} className="w-full h-full">
-           <ArtifactModel />
+          <ArtifactModel />
         </Section3DContainer>
       </div>
 
@@ -58,26 +58,37 @@ const GreatWorks = () => {
               className="stone-card flex flex-col h-full rounded-none border border-primary/20 hover:border-primary/50 group relative overflow-hidden"
             >
               {/* Image / Header Placeholder with Archway Effect */}
-              <div className="h-48 w-full bg-muted/30 relative overflow-hidden flex items-center justify-center p-8 text-primary/20 border-b border-border/50">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-50" />
-                <Layout className="w-24 h-24 stroke-[1px] group-hover:scale-110 transition-transform duration-700" />
-                
+              <div className="h-48 w-full bg-muted/30 relative overflow-hidden flex items-center justify-center text-primary/20 border-b border-border/50">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-50 z-10 pointer-events-none" />
+
+                {/* @ts-ignore - image exists on project */}
+                {project.image ? (
+                  <img
+                    // @ts-ignore
+                    src={project.image}
+                    alt={project.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700"
+                  />
+                ) : (
+                  <Layout className="w-24 h-24 stroke-[1px] group-hover:scale-110 transition-transform duration-700 z-10" />
+                )}
+
                 {/* Decorative Arch */}
                 <div className="absolute top-0 left-0 right-0 h-12 bg-background/50 rounded-b-[100%] border-b border-border/30" />
-                
+
                 {/* Project Badge */}
                 <div className="absolute top-4 right-4 px-3 py-1 bg-background/80 border border-primary/30 text-[10px] uppercase font-cinzel tracking-widest text-primary font-bold backdrop-blur-sm shadow-2xl">
-                   {project.type}
+                  {project.type}
                 </div>
               </div>
 
               {/* Content */}
               <div className="p-8 flex-1 flex flex-col relative z-10">
                 <h3 className="text-xl font-jiang text-white mb-4 group-hover:text-primary transition-colors flex items-center justify-between gap-4">
-                   {project.title}
-                   <Star className="w-4 h-4 text-primary/30 group-hover:text-primary transition-colors" />
+                  {project.title}
+                  <Star className="w-4 h-4 text-primary/30 group-hover:text-primary transition-colors" />
                 </h3>
-                
+
                 <p className="font-serif italic text-muted-foreground mb-8 line-clamp-3 text-sm flex-1">
                   "{project.description}"
                 </p>
@@ -94,19 +105,19 @@ const GreatWorks = () => {
                   {project.link ? (
                     <Button asChild className="flex-1 rounded-none bg-primary hover:bg-primary/80 text-primary-foreground font-cinzel font-bold tracking-widest gap-2">
                       <a href={project.link} target="_blank" rel="noopener noreferrer">
-                         <Globe className="w-4 h-4" />
-                         View
+                        <Globe className="w-4 h-4" />
+                        View
                       </a>
                     </Button>
                   ) : (
-                    <Button disabled type="button" onClick={() => {}} className="flex-1 rounded-none border border-border bg-transparent text-muted-foreground font-cinzel font-bold tracking-widest cursor-not-allowed opacity-50">
-                       Proprietary
+                    <Button disabled type="button" onClick={() => { }} className="flex-1 rounded-none border border-border bg-transparent text-muted-foreground font-cinzel font-bold tracking-widest cursor-not-allowed opacity-50">
+                      Proprietary
                     </Button>
                   )}
                   <Button asChild variant="outline" className="rounded-none border-border hover:border-primary/50 bg-transparent text-primary px-3 group/btn">
-                     <a href={project.github || "https://github.com/mourique-naskar"} target="_blank" rel="noopener noreferrer" aria-label="Github Link">
-                        <Github className="w-5 h-5 group-hover/btn:rotate-12 transition-transform" />
-                     </a>
+                    <a href={project.github || "https://github.com/mourique-naskar"} target="_blank" rel="noopener noreferrer" aria-label="Github Link">
+                      <Github className="w-5 h-5 group-hover/btn:rotate-12 transition-transform" />
+                    </a>
                   </Button>
                 </div>
               </div>

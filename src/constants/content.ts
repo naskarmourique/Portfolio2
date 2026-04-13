@@ -74,6 +74,7 @@ export const PROJECTS = [
     tech: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "HTML", "CSS"],
     link: "https://student-performance-tracker-s6wf.onrender.com",
     github: "https://github.com/mourique-naskar",
+    image: "/projects/student_perf.png"
   },
   {
     title: "Smart Traffic Analyzer & Predictor",
@@ -81,6 +82,7 @@ export const PROJECTS = [
     description: "Cleaned and aggregated traffic data; forecasted congestion using ML models. Flask analytics dashboard with interactive charts and heatmaps.",
     tech: ["Flask", "Pandas", "NumPy", "Scikit-learn", "SciPy", "Matplotlib", "Seaborn"],
     github: "https://github.com/mourique-naskar",
+    image: "/projects/traffic_analyzer.png"
   },
   {
     title: "PayGuard AI - Credit Card Fraud Analysis",
@@ -88,6 +90,7 @@ export const PROJECTS = [
     description: "Intelligent fraud detection platform using Autoencoder Neural Networks to identify transaction anomalies in real-time. Features a dynamic dashboard for predictive analytics and high-volume monitoring.",
     tech: ["Python", "FastAPI", "PyTorch", "React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/naskarmourique/PayGuard-AI",
+    image: "/projects/payguard.png"
   },
   {
     title: "SnapAttend - AI Biometric Attendance",
@@ -95,6 +98,7 @@ export const PROJECTS = [
     description: "High-precision biometric ecosystem leveraging FaceNet512 and RetinaFace for automated attendance tracking. Includes a secure RBAC dashboard with live analytics and automated reporting.",
     tech: ["Python", "OpenCV", "React", "Tailwind CSS", "Framer Motion", "JWT"],
     github: "https://github.com/naskarmourique/SnapAttend",
+    image: "/projects/snapattend.png"
   },
   {
     title: "BloodConnect — Blood Bank Management",
@@ -102,6 +106,7 @@ export const PROJECTS = [
     description: "Donor registration, blood inventory control, emergency request approvals for hospitals.",
     tech: ["HTML5", "CSS", "PHP", "MySQL", "Bootstrap", "XAMPP"],
     github: "https://github.com/mourique-naskar",
+    image: "/projects/bloodconnect.png"
   },
   {
     title: "Personal Expense Tracker",
@@ -109,6 +114,7 @@ export const PROJECTS = [
     description: "Expense tracking with structured JSON storage and interactive visual analysis.",
     tech: ["Python", "Pandas", "Matplotlib", "Ipywidgets", "JSON"],
     github: "https://github.com/mourique-naskar",
+    image: "/projects/expense_tracker.png"
   },
 ];
 
@@ -178,8 +184,8 @@ export const ACHIEVEMENTS = [
 ];
 
 export const SOFT_SKILLS = [
-  "Team Leadership", "Cross-functional Collaboration", "Technical Communication", 
-  "Problem Solving", "Analytical Thinking", "Attention to Detail", 
+  "Team Leadership", "Cross-functional Collaboration", "Technical Communication",
+  "Problem Solving", "Analytical Thinking", "Attention to Detail",
   "Adaptability", "Project Ownership", "Continuous Learning", "Time Management"
 ];
 

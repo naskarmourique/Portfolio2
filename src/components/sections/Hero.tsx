@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 const BattlefieldScene = () => {
   const meshRef = useRef<THREE.Mesh>(null);
   const swordRef = useRef<THREE.Group>(null);
-  
+
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
 
@@ -30,7 +30,7 @@ const BattlefieldScene = () => {
       <pointLight position={[10, 10, 10]} intensity={2.5} color="#d4af37" />
       <pointLight position={[-10, -5, 5]} intensity={1} color="#8a0303" />
       <Sparkles count={150} scale={20} size={1.5} speed={0.4} color="#ffaa00" opacity={0.6} />
-      
+
       {/* Cinematic Ground Grid */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 0]}>
         <planeGeometry args={[100, 100]} />
@@ -43,10 +43,10 @@ const BattlefieldScene = () => {
           {/* Blade with reflection */}
           <mesh position={[0, 0, 0]}>
             <boxGeometry args={[0.18, 2.8, 0.04]} />
-            <meshStandardMaterial 
-              color="#666666" 
-              metalness={1} 
-              roughness={0.15} 
+            <meshStandardMaterial
+              color="#666666"
+              metalness={1}
+              roughness={0.15}
               emissive="#222222"
               emissiveIntensity={0.5}
             />
@@ -72,21 +72,21 @@ const BattlefieldScene = () => {
       {/* Spatially distant mystical elements */}
       <mesh ref={meshRef} position={[8, 3, -10]}>
         <torusKnotGeometry args={[1.5, 0.4, 128, 32]} />
-        <meshStandardMaterial 
-          color="#8a0303" 
-          metalness={0.8} 
-          roughness={0.2} 
+        <meshStandardMaterial
+          color="#8a0303"
+          metalness={0.8}
+          roughness={0.2}
           wireframe
           opacity={0.3}
           transparent
         />
       </mesh>
-      
+
       {/* Floating debris for depth */}
       <group>
         {Array.from({ length: 20 }).map((_, i) => (
-          <mesh 
-            key={i} 
+          <mesh
+            key={i}
             position={[Math.sin(i) * 15, Math.cos(i) * 10, -Math.random() * 20]}
             rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}
           >
@@ -128,10 +128,10 @@ const Hero = () => {
       {/* 3D Background */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {inView && (
-          <Canvas 
-            shadows={false} 
-            dpr={[1, 1.2]} 
-            gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }} 
+          <Canvas
+            shadows={false}
+            dpr={[1, 1.2]}
+            gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
             style={{ pointerEvents: 'none' }}
           >
             <PerspectiveCamera makeDefault position={[0, 0, 8]} fov={50} />
@@ -143,7 +143,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <motion.div 
+      <motion.div
         style={{ y, opacity, scale }}
         className="relative z-10 text-center px-4 max-w-5xl mx-auto"
       >
@@ -189,14 +189,14 @@ const Hero = () => {
           transition={{ delay: 1.5, duration: 1 }}
           className="mt-12"
         >
-          <Button 
+          <Button
             asChild
-            variant="outline" 
+            variant="outline"
             className="group relative border-primary text-primary hover:bg-primary hover:text-primary-foreground font-cinzel px-8 py-6 rounded-none tracking-widest overflow-hidden"
           >
-            <a href="#oath">
-              <span className="relative z-10">Unfurl the Saga</span>
-              <motion.div 
+            <a href="/Mourique-CV.pdf" download="Mourique-CV.pdf" target="_blank" rel="noopener noreferrer">
+              <span className="relative z-10">Unfurl the Scroll</span>
+              <motion.div
                 className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
               />
             </a>

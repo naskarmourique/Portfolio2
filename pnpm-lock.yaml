@@ -4,18 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    '@react-three/drei':
-      specifier: 9.122.0
-      version: 9.122.0
-    '@react-three/fiber':
-      specifier: 8.18.0
-      version: 8.18.0
-    three:
-      specifier: 0.180.0
-      version: 0.180.0
-
 importers:
 
   .:
@@ -108,10 +96,10 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8(@types/react-dom@19.2.2(@types/react@19.2.2))(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@react-three/drei':
-        specifier: 'catalog:'
+        specifier: 9.122.0
         version: 9.122.0(@react-three/fiber@8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0))(@types/react@19.2.2)(@types/three@0.183.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)(use-sync-external-store@1.5.0(react@18.3.1))
       '@react-three/fiber':
-        specifier: 'catalog:'
+        specifier: 8.18.0
         version: 8.18.0(@types/react@19.2.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(three@0.180.0)
       '@supabase/supabase-js':
         specifier: ^2.98.0
@@ -219,7 +207,7 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0(tailwindcss@3.4.17)
       three:
-        specifier: 'catalog:'
+        specifier: 0.180.0
         version: 0.180.0
       vaul:
         specifier: ^1.1.2

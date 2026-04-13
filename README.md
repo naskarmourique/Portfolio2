@@ -2,7 +2,7 @@
 
 A high-performance, visually immersive digital chronicle forged with **React**, **Three.js**, and **Framer Motion**. This portfolio follows a medieval "Warrior-Scholar" theme, blending ancient aesthetics with modern full-stack engineering.
 
-![Version](https://img.shields.io/badge/version-0.0.1-gold)
+![Version](https://img.shields.io/badge/version-2.0.5-gold)
 ![Tech](https://img.shields.io/badge/Tech-React%20%7C%20Three.js%20%7C%20Tailwind-blue)
 ![Theme](https://img.shields.io/badge/Theme-Medieval%20Chronicle-crimson)
 

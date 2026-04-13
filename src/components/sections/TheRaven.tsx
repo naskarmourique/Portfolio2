@@ -39,7 +39,7 @@ const TheRaven = () => {
     <section id="raven" className="relative py-24 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-40">
         <Section3DContainer cameraPos={[0, 0, 5]} className="w-full h-full">
-           <RavenModel />
+          <RavenModel />
         </Section3DContainer>
       </div>
 
@@ -71,8 +71,7 @@ const TheRaven = () => {
             <div className="flex gap-6">
               {[
                 { icon: <Linkedin />, link: CONTACT.linkedin, label: "Herald's Banner" },
-                { icon: <Github />, link: CONTACT.github, label: "Tome of Code" },
-                { icon: <Globe />, link: CONTACT.portfolio, label: "Castle Gate" }
+                { icon: <Github />, link: CONTACT.github, label: "Tome of Code" }
               ].map((social, i) => (
                 <motion.a
                   key={i}
@@ -101,8 +100,8 @@ const TheRaven = () => {
             className="space-y-12"
           >
             <div className="space-y-6">
-               <h2 className="text-4xl md:text-5xl font-jiang text-white mb-4">Contact the Scribe</h2>
-               <div className="h-1 w-24 bg-primary" />
+              <h2 className="text-4xl md:text-5xl font-jiang text-white mb-4">Contact the Scribe</h2>
+              <div className="h-1 w-24 bg-primary" />
             </div>
 
             <div className="space-y-8">
@@ -130,19 +129,19 @@ const TheRaven = () => {
             <div className="pt-10">
               <Button asChild className="w-full md:w-auto px-12 py-8 bg-accent hover:bg-accent/80 text-white rounded-none font-cinzel text-lg tracking-[0.2em] group">
                 <a href={`mailto:${CONTACT.email}`}>
-                   <Send className="w-6 h-6 mr-4 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
-                   Forge a Connection
+                  <Send className="w-6 h-6 mr-4 group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform" />
+                  Forge a Connection
                 </a>
               </Button>
             </div>
 
             {/* Inscription */}
             <div className="p-8 border border-primary/10 bg-muted/20 relative">
-               <p className="font-serif italic text-muted-foreground text-sm">
-                 "In the grand tapestry of the digital age, every connection is a thread of fate. Let us weave something legendary together across the vast expanses of code and data."
-               </p>
-               <div className="absolute -bottom-2 -right-2 w-12 h-12 border-b-2 border-r-2 border-primary/20" />
-               <div className="absolute -top-2 -left-2 w-12 h-12 border-t-2 border-l-2 border-primary/20" />
+              <p className="font-serif italic text-muted-foreground text-sm">
+                "In the grand tapestry of the digital age, every connection is a thread of fate. Let us weave something legendary together across the vast expanses of code and data."
+              </p>
+              <div className="absolute -bottom-2 -right-2 w-12 h-12 border-b-2 border-r-2 border-primary/20" />
+              <div className="absolute -top-2 -left-2 w-12 h-12 border-t-2 border-l-2 border-primary/20" />
             </div>
           </motion.div>
         </div>

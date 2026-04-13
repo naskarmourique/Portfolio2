@@ -68,7 +68,7 @@ const TheArmory = () => {
           <div className="h-1 w-24 bg-primary mx-auto mt-6" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex overflow-x-auto gap-8 pb-12 snap-x snap-mandatory pt-4 px-4 -mx-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
           {SKILLS.map((category, idx) => (
             <motion.div
               key={category.category}
@@ -76,15 +76,15 @@ const TheArmory = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              className="stone-card relative flex flex-col p-8 rounded-none border border-primary/20 hover:border-primary/50 group overflow-hidden transition-all duration-700 shadow-xl hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]"
+              className="stone-card relative flex flex-col p-8 rounded-none border border-primary/20 hover:border-primary/50 group overflow-hidden transition-all duration-700 shadow-xl hover:shadow-[0_0_40px_rgba(212,175,55,0.15)] flex-none w-[85vw] md:w-[45vw] lg:w-[350px] snap-center shrink-0"
             >
               {/* Rack Header */}
-              <div className="flex items-center gap-4 mb-8 relative z-10">
-                <div className="p-4 bg-background/80 backdrop-blur-sm border border-primary/30 rounded-full group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-all duration-500">
+              <div className="flex items-center gap-4 mb-8 relative z-10 w-full">
+                <div className="p-4 bg-background/80 backdrop-blur-sm border border-primary/30 rounded-full group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-all duration-500 shrink-0">
                   {getIcon(category.type)}
                 </div>
-                <div className="flex-1 border-b border-primary/20 group-hover:border-primary/60 transition-colors pb-2">
-                  <h3 className="font-cinzel text-xl font-bold tracking-[0.15em] text-white/90 group-hover:text-primary transition-colors">{category.category}</h3>
+                <div className="flex-1 border-b border-primary/20 group-hover:border-primary/60 transition-colors pb-2 overflow-hidden">
+                  <h3 className="font-cinzel text-lg md:text-xl font-bold tracking-[0.1em] text-white/90 group-hover:text-primary transition-colors truncate">{category.category}</h3>
                 </div>
               </div>
 
@@ -94,11 +94,11 @@ const TheArmory = () => {
                   <motion.div
                     key={item}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="relative px-4 py-2 bg-secondary/30 border border-primary/10 hover:border-primary/50 text-sm font-sans tracking-wide transition-all overflow-hidden flex items-center gap-2 group/item text-muted-foreground hover:text-white backdrop-blur-md cursor-default pointer-events-auto"
+                    className="relative px-3 py-2 bg-secondary/30 border border-primary/10 hover:border-primary/50 text-xs md:text-sm font-sans tracking-wide transition-all overflow-hidden flex items-center gap-2 group/item text-muted-foreground hover:text-white backdrop-blur-md cursor-default pointer-events-auto shrink-0"
                   >
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent translate-x-[-100%] group-hover/item:translate-x-0 transition-transform duration-500" />
                     <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover/item:bg-primary group-hover/item:shadow-[0_0_8px_rgba(212,175,55,1)] transition-all duration-300" />
-                    <span className="relative z-10">{item}</span>
+                    <span className="relative z-10 whitespace-nowrap">{item}</span>
                   </motion.div>
                 ))}
               </div>

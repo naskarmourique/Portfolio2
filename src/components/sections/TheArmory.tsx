@@ -45,8 +45,8 @@ const TheArmory = () => {
   return (
     <section id="armory" className="relative py-24 md:py-32 bg-background overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-20">
-        <Section3DContainer cameraPos={[5, 0, 10]} className="w-full h-full">
-           <ShieldModel />
+        <Section3DContainer cameraPos={[0, 0, 10]} className="w-full h-full">
+          <ShieldModel />
         </Section3DContainer>
       </div>
 
@@ -72,36 +72,41 @@ const TheArmory = () => {
           {SKILLS.map((category, idx) => (
             <motion.div
               key={category.category}
-              initial={{ opacity: 0, x: idx % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: idx * 0.1 }}
-              className="stone-card p-6 rounded-none relative group overflow-hidden"
+              className="stone-card relative flex flex-col p-8 rounded-none border border-primary/20 hover:border-primary/50 group overflow-hidden transition-all duration-700 shadow-xl hover:shadow-[0_0_40px_rgba(212,175,55,0.15)]"
             >
               {/* Rack Header */}
-              <div className="flex items-center gap-4 mb-6 border-b border-border/50 pb-4">
-                <div className="p-3 bg-secondary/50 border border-primary/30 rounded-full group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground transition-all">
+              <div className="flex items-center gap-4 mb-8 relative z-10">
+                <div className="p-4 bg-background/80 backdrop-blur-sm border border-primary/30 rounded-full group-hover:scale-110 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-[0_0_25px_rgba(212,175,55,0.6)] transition-all duration-500">
                   {getIcon(category.type)}
                 </div>
-                <h3 className="font-cinzel text-lg font-bold tracking-widest text-primary">{category.category}</h3>
+                <div className="flex-1 border-b border-primary/20 group-hover:border-primary/60 transition-colors pb-2">
+                  <h3 className="font-cinzel text-xl font-bold tracking-[0.15em] text-white/90 group-hover:text-primary transition-colors">{category.category}</h3>
+                </div>
               </div>
 
               {/* Items Grid */}
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3 relative z-10">
                 {category.items.map((item, i) => (
                   <motion.div
                     key={item}
-                    whileHover={{ scale: 1.1, rotate: [0, -2, 2, 0] }}
-                    className="px-4 py-2 bg-background border border-border/30 hover:border-primary/50 text-xs md:text-sm font-sans tracking-wide transition-all cursor-default flex items-center gap-2 group/item shadow-inner"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    className="relative px-4 py-2 bg-secondary/30 border border-primary/10 hover:border-primary/50 text-sm font-sans tracking-wide transition-all overflow-hidden flex items-center gap-2 group/item text-muted-foreground hover:text-white backdrop-blur-md cursor-default pointer-events-auto"
                   >
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover/item:bg-primary transition-colors" />
-                    {item}
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent translate-x-[-100%] group-hover/item:translate-x-0 transition-transform duration-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/30 group-hover/item:bg-primary group-hover/item:shadow-[0_0_8px_rgba(212,175,55,1)] transition-all duration-300" />
+                    <span className="relative z-10">{item}</span>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Background texture for the rack */}
-              <div className="absolute inset-0 pointer-events-none opacity-5 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/black-linen.png')]" />
+              {/* Background lighting effects */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[50px] group-hover:bg-primary/20 transition-colors duration-700 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-accent/5 rounded-full blur-[50px] group-hover:bg-accent/20 transition-colors duration-700 pointer-events-none" />
+              <div className="absolute inset-0 pointer-events-none opacity-5 mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
             </motion.div>
           ))}
         </div>

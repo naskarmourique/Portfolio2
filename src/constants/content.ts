@@ -170,8 +170,8 @@ export const EDUCATION = [
 
 export const ACHIEVEMENTS = [
   {
-    title: "Certification",
-    content: "G++ Smart in AI & ML, RGET (Mar 2025 – Present)",
+    title: "Time Management",
+    content: "Effectively balance rigorous academic coursework, multiple internships, and deep personal development projects, consistently delivering high-quality results on schedule.",
   },
   {
     title: "Leadership",
@@ -186,7 +186,7 @@ export const ACHIEVEMENTS = [
 export const SOFT_SKILLS = [
   "Team Leadership", "Cross-functional Collaboration", "Technical Communication",
   "Problem Solving", "Analytical Thinking", "Attention to Detail",
-  "Adaptability", "Project Ownership", "Continuous Learning", "Time Management"
+  "Adaptability", "Project Ownership", "Continuous Learning", "Group Dynamics"
 ];
 
 export const CONTACT = {

@@ -121,7 +121,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section ref={(el) => {
+    <section id="hero" ref={(el) => {
       containerRef.current = el as HTMLDivElement;
       inViewRef(el);
     }} className="relative h-screen w-full flex items-center justify-center overflow-hidden">

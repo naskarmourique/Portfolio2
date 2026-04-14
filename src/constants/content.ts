@@ -73,7 +73,7 @@ export const PROJECTS = [
     description: "Secure platform: teacher login, grade management, performance statistics. Deployed live with real-time database queries.",
     tech: ["Python", "Flask", "SQLAlchemy", "PostgreSQL", "HTML", "CSS"],
     link: "https://student-performance-tracker-s6wf.onrender.com",
-    github: "https://github.com/naskarmourique",
+    github: "https://github.com/naskarmourique/Student-Performance-Tracker",
     image: "/projects/student_perf.png"
   },
   {
@@ -81,7 +81,7 @@ export const PROJECTS = [
     type: "ML + Analytics",
     description: "Cleaned and aggregated traffic data; forecasted congestion using ML models. Flask analytics dashboard with interactive charts and heatmaps.",
     tech: ["Flask", "Pandas", "NumPy", "Scikit-learn", "SciPy", "Matplotlib", "Seaborn"],
-    github: "https://github.com/naskarmourique",
+    github: "https://github.com/naskarmourique/Smart-Traffic-Analyzer",
     image: "/projects/traffic_analyzer.png"
   },
   {
@@ -105,7 +105,7 @@ export const PROJECTS = [
     type: "Full-stack Web App",
     description: "Donor registration, blood inventory control, emergency request approvals for hospitals.",
     tech: ["HTML5", "CSS", "PHP", "MySQL", "Bootstrap", "XAMPP"],
-    github: "https://github.com/naskarmourique",
+    github: "https://github.com/naskarmourique/Blood-Bank-management-System-",
     image: "/projects/bloodconnect.png"
   },
   {
@@ -113,8 +113,17 @@ export const PROJECTS = [
     type: "Data Analysis",
     description: "Expense tracking with structured JSON storage and interactive visual analysis.",
     tech: ["Python", "Pandas", "Matplotlib", "Ipywidgets", "JSON"],
-    github: "https://github.com/naskarmourique",
+    github: "https://github.com/naskarmourique/Personal-Expense-Tracker-",
     image: "/projects/expense_tracker.png"
+  },
+  {
+    title: "Interactive 3D Portfolio Website",
+    type: "Frontend Development",
+    description: "High-performance responsive portfolio with custom 3D animations, cinematic transitions, and interactive medieval-themed environments.",
+    tech: ["React", "TypeScript", "Three.js", "Framer Motion", "Tailwind CSS"],
+    link: "https://mourique.netlify.app",
+    github: "https://github.com/naskarmourique/Portfolio2",
+    image: "/images/logo/logo-dark.svg"
   },
 ];
 
@@ -193,7 +202,7 @@ export const CONTACT = {
   phone: "8100264250",
   email: "naskarmourique@gmail.com",
   linkedin: "https://linkedin.com/in/mourique-naskar-b8141a2bb",
-  github: "https://github.com/naskarmourique",
+  github: "https://github.com/naskarmourique/Portfolio2",
   portfolio: "https://mourique.netlify.app",
   cta: "Send the Raven — Let us forge something legendary together.",
 };

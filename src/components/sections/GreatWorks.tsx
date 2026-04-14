@@ -115,7 +115,7 @@ const GreatWorks = () => {
                     </Button>
                   )}
                   <Button asChild variant="outline" className="rounded-none border-border hover:border-primary/50 bg-transparent text-primary px-3 group/btn">
-                    <a href={project.github || "https://github.com/mourique-naskar"} target="_blank" rel="noopener noreferrer" aria-label="Github Link">
+                    <a href={project.github || "https://github.com/naskarmourique"} target="_blank" rel="noopener noreferrer" aria-label="Github Link">
                       <Github className="w-5 h-5 group-hover/btn:rotate-12 transition-transform" />
                     </a>
                   </Button>

@@ -116,15 +116,6 @@ export const PROJECTS = [
     github: "https://github.com/naskarmourique/Personal-Expense-Tracker-",
     image: "/projects/expense_tracker.png"
   },
-  {
-    title: "Interactive 3D Portfolio Website",
-    type: "Frontend Development",
-    description: "High-performance responsive portfolio with custom 3D animations, cinematic transitions, and interactive medieval-themed environments.",
-    tech: ["React", "TypeScript", "Three.js", "Framer Motion", "Tailwind CSS"],
-    link: "https://mourique.netlify.app",
-    github: "https://github.com/naskarmourique/Portfolio2",
-    image: "/images/logo/logo-dark.svg"
-  },
 ];
 
 export const CERTIFICATIONS = [

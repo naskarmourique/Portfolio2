@@ -73,6 +73,37 @@ const TheOath = () => {
 
             {/* Content */}
             <div className="relative z-10 space-y-8 text-background">
+              {/* Profile Image Portrait */}
+              <div className="flex justify-center mb-12">
+                <motion.div
+                  initial={{ scale: 0, rotate: -10 }}
+                  whileInView={{ scale: 1, rotate: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
+                  className="relative group"
+                >
+                  {/* Ornate Frame */}
+                  <div className="absolute inset-0 -m-3 rounded-full border-4 border-accent/30 scale-105 group-hover:scale-110 group-hover:border-accent transition-all duration-500" />
+                  <div className="absolute inset-0 -m-1 rounded-full border-2 border-primary/50 group-hover:border-primary transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.3)]" />
+                  
+                  {/* The Image */}
+                  <div className="relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-background shadow-2xl z-10">
+                    <img 
+                      src="/images/mourique.jpg" 
+                      alt="Mourique Naskar" 
+                      className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700 hover:scale-110"
+                    />
+                    {/* Vignette Overlay */}
+                    <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] pointer-events-none" />
+                  </div>
+
+                  {/* Decorative Elements */}
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-accent text-white px-4 py-1 rounded-sm font-cinzel text-[10px] tracking-widest uppercase shadow-lg z-20 whitespace-nowrap">
+                    The Visionary
+                  </div>
+                </motion.div>
+              </div>
+
               <div className="text-center mb-10">
                 <span className="font-cinzel text-xs tracking-widest uppercase text-background/60 block mb-4">Decree I</span>
                 <p className="font-serif italic text-xl md:text-2xl leading-relaxed text-background/90">

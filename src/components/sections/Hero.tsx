@@ -195,7 +195,7 @@ const Hero = () => {
             className="group relative border-primary text-primary hover:bg-primary hover:text-primary-foreground font-cinzel px-8 py-6 rounded-none tracking-widest overflow-hidden"
           >
             <a href="/Mourique-CV.pdf" download="Mourique-CV.pdf" type="application/pdf" target="_blank" rel="noopener noreferrer">
-              <span className="relative z-10">Unfurl the Scroll</span>
+              <span className="relative z-10">Unfurl the Scroll (CV)</span>
               <motion.div
                 className="absolute inset-0 bg-primary/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
               />
